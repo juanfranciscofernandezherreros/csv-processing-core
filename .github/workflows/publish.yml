@@ -1,8 +1,8 @@
 name: publish
 
 on:
-  release:
-    types: [published]
+  push:
+    branches: [ main ]
 
 permissions:
   contents: read
@@ -10,7 +10,6 @@ permissions:
 
 jobs:
   publish:
-    if: startsWith(github.event.release.tag_name, 'v')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,11 +19,6 @@ jobs:
           java-version: '21'
           cache: maven
           server-id: github
-      - name: Verify release tag matches revision
-        shell: bash
-        run: |
-          VERSION="$(mvn help:evaluate -Dexpression=revision -q -DforceStdout)"
-          test "v${VERSION}" = "${{ github.event.release.tag_name }}"
       - name: Test and publish
         run: mvn -B deploy
         env:

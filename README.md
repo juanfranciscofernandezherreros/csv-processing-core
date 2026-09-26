@@ -1,4 +1,4 @@
-![version](https://img.shields.io/badge/version-1.0.0-blue)
+![version](https://img.shields.io/badge/version-1.0.1-blue)
 # csv-processing-core
 
 Módulo Java 21 pequeño y sin dependencias de framework para compartir infraestructura CSV estable entre los parsers de Basketball Stats.
@@ -57,10 +57,10 @@ Los consumidores deben fijar una versión concreta. La serie 1.x mantendrá comp
 Coordenadas Maven:
 
 ```text
-com.fernandez.basketball:csv-processing-core:1.0.0
+com.fernandez.basketball:csv-processing-core:1.0.1
 ```
 
-El artefacto se publica en GitHub Packages al crear una release/tag `v*`.
+El artefacto se publica automáticamente en GitHub Packages desde `main` después de pasar CI. Cada cambio en `main` incrementa SemVer, por lo que cada publicación usa una versión nueva.
 
 ## Validación
 
